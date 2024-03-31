@@ -6,10 +6,10 @@ import { colorToCss } from "@/lib/utils";
 import { LayerType } from "@/types/canvas";
 import { useStorage } from "@/liveblocks.config";
 
-// import { Text } from "./text";
+import { Text } from "./text";
 import { Ellipse } from "./ellipse";
 import { Rectangle } from "./rectangle";
-// import { Note } from "./note";
+import { Note } from "./note";
 // import { Path } from "./path";
 
 interface LayerPreviewProps {
@@ -42,24 +42,24 @@ export const LayerPreview = memo(({
     //       stroke={selectionColor}
     //     />
     //   )
-    // case LayerType.Note:
-    //   return (
-    //     <Note
-    //       id={id}
-    //       layer={layer}
-    //       onPointerDown={onLayerPointerDown}
-    //       selectionColor={selectionColor}
-    //     />
-    //   );
-    // case LayerType.Text:
-    //   return (
-    //     <Text
-    //       id={id}
-    //       layer={layer}
-    //       onPointerDown={onLayerPointerDown}
-    //       selectionColor={selectionColor}
-    //     />
-    //   );
+    case LayerType.Note:
+      return (
+        <Note
+          id={id}
+          layer={layer}
+          onPointerDown={onLayerPointerDown}
+          selectionColor={selectionColor}
+        />
+      );
+    case LayerType.Text:
+      return (
+        <Text
+          id={id}
+          layer={layer}
+          onPointerDown={onLayerPointerDown}
+          selectionColor={selectionColor}
+        />
+      );
     case LayerType.Ellipse:
       return (
         <Ellipse
